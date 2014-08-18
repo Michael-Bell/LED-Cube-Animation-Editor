@@ -1,3 +1,5 @@
+//TODO Move this file
+
 var NODE_WIDTH = 1;
 var NODE_SPACING = 5;
 var BASE_OPACITY = 0.3;
