@@ -4,6 +4,15 @@ $('#addFrame').on('click', function(e){
     code += dumpInArray();
 });
 
+$('#allOn').on('click', function(e){$('#boxes input[type="checkbox"]').each(function(){
+    this.checked=true;
+    display.allOn();
+});});
+
+$('#allOff').on('click', function(e){$('#boxes input[type="checkbox"]').each(function(){
+    this.checked=false;
+    display.allOff();
+});});
 
 function dumpInArray(){
     var i=0;
@@ -32,6 +41,7 @@ function dumpInArray(){
 
     });
     str += "10, "
+    display.allOff();
     return str;
 }
 

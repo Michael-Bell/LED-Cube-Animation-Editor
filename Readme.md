@@ -13,7 +13,7 @@ Help is welcome, do what you want and send in a pull request or whatnot. Things 
 For now, open the ino file and make your changes. Run the script through this [site](http://www.freeformatter.com/javascript-escape.html), and update the app.js variables.
 
 ## 3D Viewer
-based off of this
+3D Viewer uses Three.js and borrows code from [ledcube-webgl](https://github.com/ultrafez/ledcube-webgl) by [ultrafez](https://github.com/ultrafez)
 
 ## License
 GPLv3
