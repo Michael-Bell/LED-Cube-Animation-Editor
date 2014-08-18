@@ -96,7 +96,7 @@ Cube.prototype.setPixelColor = function(x, y, z, on) {
     r = 0/255;
     g = 0/255;
     b = 0/255;
-    if(on)r=1;
+    if(on)g=.6;
     var opacity = Math.max(r, g, b);
 
     var lerpFrom = (1-opacity)*BASE_OPACITY;
@@ -105,6 +105,28 @@ Cube.prototype.setPixelColor = function(x, y, z, on) {
     var newB = interpolate(lerpFrom, 1, b);
     this.nodes[x][y][z].material.color.setRGB(newR, newG, newB);
     this.nodes[x][y][z].material.opacity = BASE_OPACITY + ((1-BASE_OPACITY) * opacity);
+
+
+}
+
+Cube.prototype.allOn = function(){
+    for(x=0; x<4; x++){
+        for(y=0; y<4; y++){
+            for(z=0; z<4; z++){
+                this.setPixelColor(x,y,z,true);
+            }
+        }
+    }
+}
+
+Cube.prototype.allOff = function(){
+    for(x=0; x<4; x++){
+        for(y=0; y<4; y++){
+            for(z=0; z<4; z++){
+                this.setPixelColor(x,y,z,false);
+            }
+        }
+    }
 }
 
 /**
