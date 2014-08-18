@@ -11,3 +11,9 @@ Help is welcome, do what you want and send in a pull request or whatnot. Things 
 
 ## How to edit Arduino Script
 For now, open the ino file and make your changes. Run the script through this [site](http://www.freeformatter.com/javascript-escape.html), and update the app.js variables.
+
+## 3D Viewer
+based off of this
+
+## License
+GPLv3
