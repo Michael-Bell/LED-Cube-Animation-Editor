@@ -118,4 +118,13 @@ $('#savePins').on('click', function (e) {
 });
 
 
+$('#playAnimation').on('click', function(e){playAnimation();});
 
+function playAnimation() {
+    var num = 0;
+    window.setInterval(function () {
+        // increase by num 1, reset to 0 at 4
+        num = (num + 1) % frames.length;
+        playFrame(frames[num]);
+    }, 100); // repeat forever, polling every 3 seconds
+}
