@@ -14,11 +14,11 @@ Right now you need to manually change the led pins from my pin out to yours, I w
     - [ ] foundation seems heavy, something lighter would be nice
     - [ ] Fix issues with Cube Controls
     - [ ] Remove Overflow: hidden
-- [ ] Allow Users to enter their Pin Numbers
+- [x] Allow Users to enter their Pin Numbers
 - [ ] Add code to allow direct upload to Cube on server 
     - [ ] Allow building of site with this disabled for Github Pages
 - [ ] Local Storage with Basil.js
-    - [ ] Save User Pin Numbers
+    - [x] Save User Pin Numbers
     - [ ] Save Animations
 - [ ] Saving of Frames, allow for editing
 - [ ] ReWrite Code for storing Animations - Store frames as Objects with Sub objects for each LED with X,Y,Z,On/OFF Bool?
