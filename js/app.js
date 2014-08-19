@@ -1,6 +1,8 @@
 var code = "";
+frames = [];
 $('#addFrame').on('click', function(e){
-   // $('#results').html(dumpInArray());
+    frames[frames.length] = saveFrame();
+    // $('#results').html(dumpInArray());
     code += dumpInArray();
 });
 
@@ -20,7 +22,6 @@ function dumpInArray(){
     var str = ""
     var arr = [];
     $('#boxes input[type="checkbox"]').each(function(){
-        arr.push(this.checked);
         var use = "0";
         if(this.checked)use="1";
         switch(i){
@@ -44,7 +45,30 @@ function dumpInArray(){
     display.allOff();
     return str;
 }
+var asdf;
+function saveFrame(){
+    arr = [];
+    $('#boxes input[type="checkbox"]').each(function(){
+        led={};
+   arr[arr.length] = led;
+        console.log(this);
+        asdf=this;
+        led.x = this.getAttribute('x');
+        led.y = this.getAttribute('y');
+        led.z = this.getAttribute('z');
+        led.on= this.checked;
 
+});
+return arr;
+}
+
+function playFrame(frame){
+    var i=0;
+    for(i=0; i<frame.length; i++){
+        console.log(i);
+        display.setPixelColor(frame[i].x,frame[i].y,frame[i].z,frame[i].on);
+    }
+}
 
 
 
