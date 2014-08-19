@@ -1,44 +1,48 @@
 var code = "";
 frames = [];
-$('#addFrame').on('click', function(e){
+$('#addFrame').on('click', function (e) {
     frames[frames.length] = saveFrame();
     // $('#results').html(dumpInArray());
     code += dumpInArray();
 });
 
-$('#allOn').on('click', function(e){$('#boxes input[type="checkbox"]').each(function(){
-    this.checked=true;
-    display.allOn();
-});});
+$('#allOn').on('click', function (e) {
+    $('#boxes input[type="checkbox"]').each(function () {
+        this.checked = true;
+        display.allOn();
+    });
+});
 
-$('#allOff').on('click', function(e){$('#boxes input[type="checkbox"]').each(function(){
-    this.checked=false;
-    display.allOff();
-});});
+$('#allOff').on('click', function (e) {
+    $('#boxes input[type="checkbox"]').each(function () {
+        this.checked = false;
+        display.allOff();
+    });
+});
 
-function dumpInArray(){
-    var i=0;
+function dumpInArray() {
+    var i = 0;
     row = 1;
     var str = ""
     var arr = [];
-    $('#boxes input[type="checkbox"]').each(function(){
+    $('#boxes input[type="checkbox"]').each(function () {
         var use = "0";
-        if(this.checked)use="1";
-        switch(i){
+        if (this.checked)use = "1";
+        switch (i) {
             case 0:
                 str += 'B' + use;
                 i++;
                 break;
             case 3:
-                str +=  use + ", ";
+                str += use + ", ";
 
-                i=0;
-                             break;
+                i = 0;
+                break;
             default:
-                str +=use;
+                str += use;
                 i++;
         }
-        this.checked=false;
+        this.checked = false;
 
     });
     str += "10, "
@@ -46,34 +50,32 @@ function dumpInArray(){
     return str;
 }
 var asdf;
-function saveFrame(){
+function saveFrame() {
     arr = [];
-    $('#boxes input[type="checkbox"]').each(function(){
-        led={};
-   arr[arr.length] = led;
+    $('#boxes input[type="checkbox"]').each(function () {
+        led = {};
+        arr[arr.length] = led;
         console.log(this);
-        asdf=this;
+        asdf = this;
         led.x = this.getAttribute('x');
         led.y = this.getAttribute('y');
         led.z = this.getAttribute('z');
-        led.on= this.checked;
+        led.on = this.checked;
 
-});
-return arr;
+    });
+    return arr;
 }
 
-function playFrame(frame){
-    var i=0;
-    for(i=0; i<frame.length; i++){
+function playFrame(frame) {
+    var i = 0;
+    for (i = 0; i < frame.length; i++) {
         console.log(i);
-        display.setPixelColor(frame[i].x,frame[i].y,frame[i].z,frame[i].on);
+        display.setPixelColor(frame[i].x, frame[i].y, frame[i].z, frame[i].on);
     }
 }
 
 
-
-
-$('#generateFile').on('click', function(e){
+$('#generateFile').on('click', function (e) {
     $('#results').html(dumpInArray());
     var blob = new Blob([code1, code, code2, LEDPin, code3, PlanePin, code4], {type: "text/plain;charset=utf-8"});
     saveAs(blob, filename);
@@ -92,20 +94,21 @@ options = {
     namespace: 'ledani'
 };
 basil = new window.Basil(options);
- PlanePin = basil.get('PlanePin');
- LEDPin = basil.get('LEDPin');
- filename = basil.get('filename')
+PlanePin = basil.get('PlanePin');
+LEDPin = basil.get('LEDPin');
+filename = basil.get('filename')
 
 
-if( PlanePin == null || LEDPin == null || filename == null ){$('#myModal').foundation('reveal', 'open'); filename='animation.ino';}
+if (PlanePin == null || LEDPin == null || filename == null) {
+    $('#myModal').foundation('reveal', 'open');
+    filename = 'animation.ino';
+}
 
-    $('#LEDPin').val(LEDPin);
-     $('#PlanePin').val(PlanePin);
+$('#LEDPin').val(LEDPin);
+$('#PlanePin').val(PlanePin);
 
 
-
-
-$('#savePins').on('click', function(e){
+$('#savePins').on('click', function (e) {
     LEDPin = $('#LEDPin').val();
     PlanePin = $('#PlanePin').val();
     basil.set('LEDPin', LEDPin);
