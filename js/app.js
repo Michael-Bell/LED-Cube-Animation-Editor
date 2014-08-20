@@ -119,12 +119,37 @@ $('#savePins').on('click', function (e) {
 
 
 $('#playAnimation').on('click', function(e){playAnimation();});
-
+var ani;
 function playAnimation() {
     var num = 0;
-    window.setInterval(function () {
+    ani = window.setInterval(function () {
         // increase by num 1, reset to 0 at 4
         num = (num + 1) % frames.length;
         playFrame(frames[num]);
-    }, 100); // repeat forever, polling every 3 seconds
+    },750); // repeat forever, polling every 3 seconds
+}
+
+
+function frameToIno(frame){
+    str="";
+    j=0;
+    for(i=0; i<frame.length; i++){
+        var on = "0";
+        if (frame[i].on)on = "1";
+        switch(j){
+            case 0:
+                str += 'B' + on;
+                j++;
+                break;
+            case 3:
+                str += on + ", ";
+                j = 0;
+                break;
+            default:
+                str += on;
+                j++;
+        }
+    }
+    str += "10, "
+return str;
 }

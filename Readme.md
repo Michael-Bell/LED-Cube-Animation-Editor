@@ -29,6 +29,9 @@ Right now you need to manually change the led pins from my pin out to yours, I w
 - [ ] add xyz lines to cube to keep user oriented
 - [ ] Is it possible to remove checkboxes and have LEDs toggled by touching corresponding dot on the Cube? Possibly bad UI if requires spinning of cube constantly
 - [ ] Clean up JS Folder
+- [ ] Slider to control animation speed
+    - [ ] changes virtual speed
+    - [ ] matches cube speed
 
 ## Contributing
 Help is awesome, write your code and submit a pull request.
