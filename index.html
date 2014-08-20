@@ -146,6 +146,21 @@
     <a href="#" id="generateFile" class="button">Create INO</a>
     <a href="#" id="allOn" class="button">Select All</a>
     <a href="#" id="allOff" class="button">Select None</a>
+    <a href="#" data-reveal-id="myModal" class="button">Open Local Storage Settings</a>
+<a href="#" class="button" id="playAnimation">Play Animation</a>
+    <div id="myModal" class="reveal-modal" data-reveal><h2>Basil.js</h2>
+
+        <p class="lead">Enter your pin numbers so I can generate your program :). Otherwise you'll get a code with my pinout.</p>
+        <div data-alert class="alert-box alert">
+            Weird bug right now, click on the label to focus on the textarea.
+            <a href="#" class="close">&times;</a>
+        </div>
+        <label>LEDPin[]<input id="LEDPin" type="text" placeholder="18,2,6,10,19,3,7,11,0,4,8,12,1,5,9,13 "></label>
+        <label>PlanePin[]<input id="PlanePin" type="text" placeholder="14,15,16,17"></label>
+        <label>Filename<input id="filename" type="text" placeholder="animation.ino"></label>
+        <a href="#" id="savePins" class="button">Save Pins</a>
+         <a class="close-reveal-modal">
+            &#215;</a></div>
     <h3>How to use this tool</h3><p>Select Led's to be added in each frame, then click Add Frame. Once all frames are added, press the Create INO button</p>
 
 </div>
@@ -157,6 +172,7 @@
 <script>
   $(document).foundation();
 </script>
+<script src="js/basil.js"></script>
     <script src="js/three.min.js"></script>
     <script src="js/OrbitControls.js"></script>
 <script src="js/stats.min.js"></script>
